@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImportProfile Ver="1.5">
+  <General ConnectionName="localhost_5432" DatabaseName="VIE_2013" SchemaName="public" SourceFile="F:\Projekte\URBAN_VIE_Versuch2013\04_Daten\ADTF\02_extrahiert_CAN-Daten\IN_PJ_934_20130614_112310__Data.csv" SourceCodepage="65001" ImportType="CSV" ImportMode="Append" UseExtendedInsert="true" IsFixedWidth="false" FieldDelimiter="2C" RowDelimiter="0D0A" TextQualifier="&quot;" XmlIncludeAttributes="false" FirstRow="41" LastRow="-1" FieldNameRow="40" DateFormat="DMY" DateSeparator="." TimeSeparator=":" DecimalSeparator="." DateTimeTzOrder="DT" UseEmptyStrAsNull="false" UseFKeyConstraint="false" ContinueOnError="true" IncludeUniqueIndexFKey="false" CreateAutoInc="false" ImportDeletedRecord="false" BinaryDataEncoding="Base64" AccessSystemDBFile="" AccessDBPassword="" AccessLogonName="" AccessLogonPassword="" BreakList=""/>
+  <STable SSchemaName="" STableName="IN_PJ_934_20130614_112310__Data" TTableName="IN_PJ_934_20130614_112310__Data" IsNewTable="true" ConditionQuery="" Query="" SourceFile="F:\Projekte\URBAN_VIE_Versuch2013\04_Daten\ADTF\02_extrahiert_CAN-Daten\IN_PJ_934_20130614_112310__Data.csv">
+    <SField SFieldName="f1" SFieldCreateName="Time" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="Time" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f2" SFieldCreateName="ESP_v_Signal" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_v_Signal" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f3" SFieldCreateName="ESP_Querbeschleunigung" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_Querbeschleunigung" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f4" SFieldCreateName="ESP_Laengsbeschl" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_Laengsbeschl" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f5" SFieldCreateName="ESP_Gierrate" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_Gierrate" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f6" SFieldCreateName="ESP_Bremsdruck" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_Bremsdruck" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f7" SFieldCreateName="ESP_Status_Bremsdruck" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="ESP_Status_Bremsdruck" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f8" SFieldCreateName="LWI_Lenkradwinkel" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="LWI_Lenkradwinkel" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f9" SFieldCreateName="LWI_Lenkradw_Geschw" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="LWI_Lenkradw_Geschw" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f10" SFieldCreateName="OBD_Abs_Pedal_Pos" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="OBD_Abs_Pedal_Pos" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f11" SFieldCreateName="WBA_Fahrstufe" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="WBA_Fahrstufe" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f12" SFieldCreateName="BH_Blinker_li" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="BH_Blinker_li" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f13" SFieldCreateName="BH_Blinker_re" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="BH_Blinker_re" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f14" SFieldCreateName="PSD_Pos_Segmentlaenge" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="PSD_Pos_Segmentlaenge" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f15" SFieldCreateName="PSD_Strassenklasse" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="PSD_Strassenklasse" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f16" SFieldCreateName="LDW_Seite_DLCTLC" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="LDW_Seite_DLCTLC" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f17" SFieldCreateName="PSD_Fahrspuren" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="PSD_Fahrspuren" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f18" SFieldCreateName="LDW_TLC" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="LDW_TLC" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f19" SFieldCreateName="LDW_DLC" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="LDW_DLC" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f20" SFieldCreateName="position_type" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="position_type" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f21" SFieldCreateName="solution_status" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="solution_status" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f22" SFieldCreateName="differential_age" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="differential_age" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f23" SFieldCreateName="gps_week" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="gps_week" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f24" SFieldCreateName="gps_ms" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="gps_ms" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f25" SFieldCreateName="latitude" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="latitude" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f26" SFieldCreateName="longitude" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="longitude" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f27" SFieldCreateName="height" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="height" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f28" SFieldCreateName="height_deviation" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="height_deviation" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f29" SFieldCreateName="latitude_deviation" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="latitude_deviation" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f30" SFieldCreateName="longitude_deviation" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="longitude_deviation" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f31" SFieldCreateName="gps_trigger_id" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="gps_trigger_id" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f32" SFieldCreateName="Xbee868CurrentState" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="Xbee868CurrentState" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+    <SField SFieldName="f33" SFieldCreateName="XBee868CurrentMode" SFieldType="varchar" SFieldLength="255" SFieldScale="0" IsSelected="true" AutoInc="false">
+      <TField TFieldName="XBee868CurrentMode" TFieldType="varchar" TFieldLength="255" TFieldScale="0" IsKey="false" AllowNull="true" IsAutoInc="false"/>
+    </SField>
+  </STable>
+</ImportProfile>
