@@ -16,7 +16,7 @@ RAISE INFO
 
 ==================================================
 Processing f_t_adtf_dist2gpsref_sxx_min
-GPS reference position %
+GPS reference position %', s'
 ==================================================
 
 ', s;
