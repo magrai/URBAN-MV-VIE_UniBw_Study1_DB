@@ -1,5 +1,5 @@
-DROP VIEW IF EXISTS v_q_everything2know CASCADE;
-CREATE VIEW v_q_everything2know AS
+DROP VIEW IF EXISTS v_personal_data_questionnaires_procotol CASCADE;
+CREATE VIEW v_personal_data_questionnaires_procotol AS
 
  SELECT t_personaldata.subid,
     t_personaldata.age,

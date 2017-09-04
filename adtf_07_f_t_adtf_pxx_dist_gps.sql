@@ -21,11 +21,11 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_dist_gps AS
 		SELECT
 		t_adtf_formatted.row_nr,
 		t_adtf_formatted.subject_id,
-		t_adtf_driven_dist_round_helper.round_id,
-		t_adtf_driven_dist_round_helper.round_helper1,
-		t_adtf_driven_dist_round_helper.round_helper2,
-		t_adtf_formatted.time_s,
-		t_adtf_driven_dist_round_helper.dist_m,
+		t_adtf_driven_dist_cum.round_id,
+		t_adtf_driven_dist_cum.round_helper1,
+		t_adtf_driven_dist_cum.round_helper2,
+		t_adtf_driven_dist_cum.time_s,
+		t_adtf_driven_dist_cum.dist_m,
 		t_adtf_formatted.gps_lat,
 		t_adtf_formatted.gps_lon,
 
@@ -36,8 +36,8 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_dist_gps AS
 
 		FROM
 		t_adtf_formatted 
-		LEFT JOIN t_adtf_driven_dist_round_helper 
-			ON t_adtf_formatted.row_nr = t_adtf_driven_dist_round_helper.row_nr,
+		LEFT JOIN t_adtf_driven_dist_cum 
+			ON t_adtf_formatted.row_nr = t_adtf_driven_dist_cum.row_nr,
 		(
 			SELECT 
 			position_id, 

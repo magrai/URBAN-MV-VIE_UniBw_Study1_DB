@@ -1,5 +1,5 @@
-DROP VIEW IF EXISTS v_demography_complete CASCADE;
-CREATE VIEW v_demography_complete AS
+DROP VIEW IF EXISTS v_personal_data_demography CASCADE;
+CREATE VIEW v_personal_data_demography AS
 
 SELECT
 "public".t_personaldata.subid,
