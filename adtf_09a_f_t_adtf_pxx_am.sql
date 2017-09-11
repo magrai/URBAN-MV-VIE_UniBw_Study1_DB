@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION f_t_adtf_pxx_dist (pos_id INT DEFAULT NULL) 
+CREATE OR REPLACE FUNCTION f_t_adtf_pxx_am (pos_id INT DEFAULT NULL) 
 RETURNS VOID
 LANGUAGE plpgsql AS $$
 ----------------------------------------------------------------------
@@ -43,28 +43,29 @@ BEGIN
 ----------------------------------------------------------------------
 
 	EXECUTE '
-	DROP TABLE IF EXISTS t_adtf_p' ||  pos_id_txt || '_dist CASCADE;
-	CREATE TABLE t_adtf_p' ||  pos_id_txt || '_dist AS
+	DROP TABLE IF EXISTS t_adtf_p' ||  pos_id_txt || '_am CASCADE;
+	CREATE TABLE t_adtf_p' ||  pos_id_txt || '_am AS
 
 	SELECT
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.row_nr,
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.subject_id,
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.round_id,
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.time_s,
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.dist_m,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.subject_id,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.round_id,
 	--
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.time_s - t_adtf_p' ||  pos_id_txt || '_dist_gps_min.time_s AS p' ||  pos_id_txt || '_dist_s,
-	t_adtf_p' ||  pos_id_txt || '_dist_gps.dist_m - t_adtf_p' ||  pos_id_txt || '_dist_gps_min.dist_m AS p' ||  pos_id_txt || '_dist_m
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.time_s,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.dist_m,
+	--
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.time_s - t_adtf_p' ||  pos_id_txt || '_gps_dist_min.time_s AS p' ||  pos_id_txt || '_tti_s,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.dist_m - t_adtf_p' ||  pos_id_txt || '_gps_dist_min.dist_m AS p' ||  pos_id_txt || '_dti_m
 
 	FROM
-	t_adtf_p' ||  pos_id_txt || '_dist_gps
+	t_adtf_p' ||  pos_id_txt || '_gps_dist
 	LEFT JOIN
-	t_adtf_p' ||  pos_id_txt || '_dist_gps_min ON
-		t_adtf_p' ||  pos_id_txt || '_dist_gps.subject_id = t_adtf_p' ||  pos_id_txt || '_dist_gps_min.subject_id AND
-		t_adtf_p' ||  pos_id_txt || '_dist_gps.round_id = t_adtf_p' ||  pos_id_txt || '_dist_gps_min.round_id
+	t_adtf_p' ||  pos_id_txt || '_gps_dist_min ON
+		t_adtf_p' ||  pos_id_txt || '_gps_dist.subject_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.subject_id AND
+		t_adtf_p' ||  pos_id_txt || '_gps_dist.round_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.round_id
 	
 	-- ORDER BY
-	-- t_adtf_p' ||  pos_id_txt || '_dist_gps.row_nr
+	-- t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr
 	';
 END $$;
 
