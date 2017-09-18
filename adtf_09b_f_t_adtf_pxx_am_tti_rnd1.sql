@@ -30,6 +30,9 @@ EXECUTE '
 	subject_id,
 	round_id,
 	round(p' || pos_id_txt || '_tti_s, 1)
+	
+	ORDER BY
+	row_nr
 
 ';
 END $$;

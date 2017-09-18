@@ -64,8 +64,8 @@ BEGIN
 		t_adtf_p' ||  pos_id_txt || '_gps_dist.subject_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.subject_id AND
 		t_adtf_p' ||  pos_id_txt || '_gps_dist.round_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.round_id
 	
-	-- ORDER BY
-	-- t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr
+	ORDER BY
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr
 	';
 END $$;
 

@@ -10,7 +10,6 @@ subject_id,
 --------------------------------------------------------------------------------
 "Time"										::NUMERIC AS time_s, 
 "ESP_v_Signal"						::NUMERIC AS speed_kmh, 
-"ESP_v_Signal" 						::NUMERIC / 3.6 AS speed_ms, 
 "ESP_Querbeschleunigung"	::NUMERIC AS acc_lat_ms2, 
 "ESP_Laengsbeschl"				::NUMERIC AS acc_lon_ms2, 
 "ESP_Bremsdruck"					::NUMERIC AS brake_press_bar,

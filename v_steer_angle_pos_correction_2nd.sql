@@ -1,0 +1,22 @@
+DROP VIEW IF EXISTS v_steer_angle_pos_correction CASCADE;
+CREATE VIEW v_steer_angle_pos_correction AS
+SELECT
+t_pxx_steer_angle_deg_max.position_id,
+t_pxx_steer_angle_deg_max.subject_id,
+t_pxx_steer_angle_deg_max.round_txt,
+t_pxx_steer_angle_deg_max.pxx_dti_m_rnd1_min,
+t_pxx_steer_angle_deg_max.steer_angle_deg_max,
+t_pxx_steer_angle_deg_max.speed_kmh_max,
+t_pxx_steer_angle_deg_max.corrupt,
+t_pxx_gps_anomalies.exploration_strategy,
+t_pxx_gps_anomalies.consequence
+FROM
+t_pxx_steer_angle_deg_max
+LEFT OUTER JOIN  t_pxx_gps_anomalies ON t_pxx_steer_angle_deg_max.position_id = t_pxx_gps_anomalies.position_id AND 
+t_pxx_steer_angle_deg_max.round_txt = t_pxx_gps_anomalies.round_txt AND 
+t_pxx_steer_angle_deg_max.subject_id = t_pxx_gps_anomalies.subject_id AND 
+t_pxx_gps_anomalies.exploration_strategy = 'steerangle_deg'
+ORDER BY
+position_id,
+subject_id,
+round_txt

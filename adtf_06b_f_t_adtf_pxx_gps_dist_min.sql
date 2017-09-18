@@ -25,26 +25,50 @@ GPS reference position %
 -- Set values for round identification workaround
 -- IF pos_id < 9 OR pos_id > 11
 -- IF pos_id < 20 AND (pos_id <= 8 OR pos_id >= 12)
-IF (pos_id <= 8 OR pos_id >= 12) AND pos_id <> 99
+IF (pos_id <= 8)
 	THEN 
 		helper_varname := 'round_helper1'; 
 		helper_val := 1;
 		RAISE NOTICE 'helper1';
 		RAISE NOTICE 'helper_val = 1';
-	ELSE 
-		IF (pos_id > 8 OR pos_id < 12) AND pos_id <> 99
-			THEN
-				helper_varname := 'round_helper2'; 
-				helper_val := 1;
-				RAISE NOTICE 'helper2';
-				RAISE NOTICE 'helper_val = 1';
-		ELSE
-				helper_varname := 'round_helper1'; 
-				helper_val := 2;
-				RAISE NOTICE 'helper1';
-				RAISE NOTICE 'helper_val = 2';
-		END IF;
+	ELSE
+	-- Do nothing
 END IF;
+		
+IF (pos_id >= 12 AND pos_id <= 18) OR (pos_id >= 22 AND pos_id <> 99)
+	THEN
+		helper_varname := 'round_helper1'; 
+		helper_val := 2;
+		RAISE NOTICE 'helper1';
+		RAISE NOTICE 'helper_val = 2';
+	ELSE 
+	-- Do nothing
+END IF;
+
+IF (pos_id >= 9 AND pos_id <= 11) OR pos_id = 99
+	THEN
+		helper_varname := 'round_helper2'; 
+		helper_val := 1;
+		RAISE NOTICE 'helper2';
+		RAISE NOTICE 'helper_val = 1';
+	ELSE 
+	-- Do nothing
+END IF;
+
+
+-- 		IF (pos_id > 8 OR pos_id < 12) OR pos_id = 99
+-- 			THEN
+-- 				helper_varname := 'round_helper2'; 
+-- 				helper_val := 1;
+-- 				RAISE NOTICE 'helper2';
+-- 				RAISE NOTICE 'helper_val = 1';
+-- 		ELSE
+-- 				helper_varname := 'round_helper1'; 
+-- 				helper_val := 2;
+-- 				RAISE NOTICE 'helper1';
+-- 				RAISE NOTICE 'helper_val = 2';
+-- 		END IF;
+-- END IF;
 
 -- IF  pos_id < 20 AND pos_id >= 12 
 -- 	THEN 
@@ -85,9 +109,9 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_gps_dist_min AS
 SELECT
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id,
 t_adtf_p' || pos_id_txt || '_gps_dist.round_id,
-t_adtf_p' || pos_id_txt || '_gps_dist.row_nr,
-t_adtf_p' || pos_id_txt || '_gps_dist.time_s,
-t_adtf_p' || pos_id_txt || '_gps_dist.dist_m,
+MIN(t_adtf_p' || pos_id_txt || '_gps_dist.row_nr) AS row_nr,
+MIN(t_adtf_p' || pos_id_txt || '_gps_dist.time_s) AS time_s,
+MIN(t_adtf_p' || pos_id_txt || '_gps_dist.dist_m) AS dist_m,
 p' || pos_id_txt || '_gps_dist_m_min
 
 FROM
@@ -113,6 +137,11 @@ WHERE
 t_adtf_p' || pos_id_txt || '_gps_dist.p' || pos_id_txt || '_gps_dist_m = temp.p' || pos_id_txt || '_gps_dist_m_min AND
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id = temp.subject_id AND
 t_adtf_p' || pos_id_txt || '_gps_dist.round_id = temp.round_id
+
+GROUP BY
+t_adtf_p' || pos_id_txt || '_gps_dist.subject_id,
+t_adtf_p' || pos_id_txt || '_gps_dist.round_id,
+temp.p' || pos_id_txt || '_gps_dist_m_min
 
 ORDER BY
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id, 
