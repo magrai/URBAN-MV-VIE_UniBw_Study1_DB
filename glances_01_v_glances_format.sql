@@ -5,7 +5,7 @@ SELECT
 substr("Datei", 3, 2)::NUMERIC AS subject_id,
 "Anfangszeit - msec"::NUMERIC / 1000 AS glance_time_s_start,
 "Endzeit - msec"::NUMERIC / 1000 AS glance_time_s_end,
-"Blickrichtung"::NUMERIC AS glance_dir_code,
+"Blickrichtung"::NUMERIC AS glance_dir_level,
 
 CASE 
 	WHEN "Blickrichtung"::NUMERIC = 0 THEN 'undefined'
@@ -28,7 +28,7 @@ CASE
 	WHEN "Blickrichtung"::NUMERIC = 5 THEN 4
 	WHEN "Blickrichtung"::NUMERIC = 6 THEN 6
 	WHEN "Blickrichtung"::NUMERIC = 7 THEN 6
-END AS glance_dir_code_v2,
+END AS glance_dir_level_v2,
 CASE 
 	WHEN "Blickrichtung"::NUMERIC = 0 THEN 'undefined'
 	WHEN "Blickrichtung"::NUMERIC = 1 THEN 'ahead'
