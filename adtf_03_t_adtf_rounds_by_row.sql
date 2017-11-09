@@ -5,12 +5,12 @@ SELECT
 t_adtf_formatted.row_nr, 
 t_adtf_formatted.subject_id, 
 t_adtf_formatted.time_s, 
-t_adtf_rounds_summary.round_id,
+t_adtf_rounds_summary.round_nr,
 CASE 
-	WHEN t_adtf_rounds_summary.round_id = 1 THEN 'intro'
-	WHEN t_adtf_rounds_summary.round_id = t_conditions.round_normal THEN 'normal'
-	WHEN t_adtf_rounds_summary.round_id = t_conditions.round_stress THEN 'stress'
-END AS round_txt
+	WHEN t_adtf_rounds_summary.round_nr = 1 THEN 'intro'
+	WHEN t_adtf_rounds_summary.round_nr = t_conditions.round_normal THEN 'normal'
+	WHEN t_adtf_rounds_summary.round_nr = t_conditions.round_stress THEN 'stress'
+END AS round_id
 --------------------------------------------------------------------------------
 FROM 
 t_adtf_formatted
@@ -25,4 +25,4 @@ WHERE
 t_adtf_formatted.subject_id = t_adtf_rounds_summary.subject_id AND 
 t_adtf_formatted.time_s >= t_adtf_rounds_summary.time_s_round_start AND
 t_adtf_formatted.time_s <= t_adtf_rounds_summary.time_s_round_end AND  
-round_id IS NOT NULL
+round_nr IS NOT NULL

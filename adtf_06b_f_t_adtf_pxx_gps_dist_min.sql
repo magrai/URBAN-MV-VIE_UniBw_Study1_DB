@@ -108,7 +108,7 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_gps_dist_min AS
 --------------------------------------------------------------------------------
 SELECT
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id,
-t_adtf_p' || pos_id_txt || '_gps_dist.round_id,
+t_adtf_p' || pos_id_txt || '_gps_dist.round_nr,
 MIN(t_adtf_p' || pos_id_txt || '_gps_dist.row_nr) AS row_nr,
 MIN(t_adtf_p' || pos_id_txt || '_gps_dist.time_s) AS time_s,
 MIN(t_adtf_p' || pos_id_txt || '_gps_dist.dist_m) AS dist_m,
@@ -119,7 +119,7 @@ t_adtf_p' || pos_id_txt || '_gps_dist,
 (
 	SELECT 
 	subject_id, 
-	round_id,
+	round_nr,
 	MIN(p' || pos_id_txt || '_gps_dist_m) AS p' || pos_id_txt || '_gps_dist_m_min
 
 	FROM 
@@ -130,22 +130,22 @@ t_adtf_p' || pos_id_txt || '_gps_dist,
 
 	GROUP BY 
 	subject_id, 
-	round_id	
+	round_nr	
 ) temp
 
 WHERE 
 t_adtf_p' || pos_id_txt || '_gps_dist.p' || pos_id_txt || '_gps_dist_m = temp.p' || pos_id_txt || '_gps_dist_m_min AND
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id = temp.subject_id AND
-t_adtf_p' || pos_id_txt || '_gps_dist.round_id = temp.round_id
+t_adtf_p' || pos_id_txt || '_gps_dist.round_nr = temp.round_nr
 
 GROUP BY
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id,
-t_adtf_p' || pos_id_txt || '_gps_dist.round_id,
+t_adtf_p' || pos_id_txt || '_gps_dist.round_nr,
 temp.p' || pos_id_txt || '_gps_dist_m_min
 
 ORDER BY
 t_adtf_p' || pos_id_txt || '_gps_dist.subject_id, 
-t_adtf_p' || pos_id_txt || '_gps_dist.round_id	
+t_adtf_p' || pos_id_txt || '_gps_dist.round_nr	
 ';
 --------------------------------------------------------------------------------
 END $$;

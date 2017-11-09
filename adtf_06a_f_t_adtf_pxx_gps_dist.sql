@@ -21,17 +21,17 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_gps_dist AS
 		SELECT
 		t_adtf_formatted.row_nr,
 		t_adtf_formatted.subject_id,
-		t_adtf_driven_dist_cum.round_id,
+		t_adtf_driven_dist_cum.round_nr,
 		t_adtf_driven_dist_cum.round_helper1,
 		t_adtf_driven_dist_cum.round_helper2,
 		t_adtf_driven_dist_cum.time_s,
 		t_adtf_driven_dist_cum.dist_m,
 		t_adtf_formatted.gps_lat,
-		t_adtf_formatted.gps_lon,
+		t_adtf_formatted.gps_long,
 
 		ST_DistanceSphere(
-			st_point(t_adtf_formatted.gps_lon, t_adtf_formatted.gps_lat), 
-			st_point(gps_p' || pos_id_txt || '_temp.gps_lon, gps_p' || pos_id_txt || '_temp.gps_lat)) 
+			st_point(t_adtf_formatted.gps_long, t_adtf_formatted.gps_lat), 
+			st_point(gps_p' || pos_id_txt || '_temp.gps_long, gps_p' || pos_id_txt || '_temp.gps_lat)) 
 		AS p' ||  pos_id_txt || '_gps_dist_m
 
 		FROM
@@ -42,7 +42,7 @@ CREATE TABLE t_adtf_p' || pos_id_txt || '_gps_dist AS
 			SELECT 
 			position_id, 
 			gps_lat, 
-			gps_lon 
+			gps_long 
 			
 			FROM 
 			t_gps_reference_positions 

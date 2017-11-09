@@ -4,7 +4,7 @@ CREATE TABLE t_adtf_driven_dist_cum AS
 SELECT
 v_adtf_driven_dist_diff_by_row.row_nr,
 v_adtf_driven_dist_diff_by_row.subject_id,
-t_adtf_rounds_by_row.round_id,
+t_adtf_rounds_by_row.round_nr,
 v_adtf_driven_dist_diff_by_row.time_s,
 
 -- Sum driven distance over all rows
@@ -19,7 +19,7 @@ CASE
 		SUM(v_adtf_driven_dist_diff_by_row.dist_m_diff) 
 			OVER (PARTITION BY 
 							v_adtf_driven_dist_diff_by_row.subject_id, 
-							v_adtf_driven_dist_diff_by_row.round_id 
+							v_adtf_driven_dist_diff_by_row.round_nr 
 						ORDER BY 
 							v_adtf_driven_dist_diff_by_row.row_nr) <= 5000
 	THEN 1::NUMERIC
@@ -31,13 +31,13 @@ CASE
 		SUM(v_adtf_driven_dist_diff_by_row.dist_m_diff) 
 			OVER (PARTITION BY 
 							v_adtf_driven_dist_diff_by_row.subject_id, 
-							v_adtf_driven_dist_diff_by_row.round_id 
+							v_adtf_driven_dist_diff_by_row.round_nr 
 						ORDER BY 
 							v_adtf_driven_dist_diff_by_row.row_nr) >= 4000 AND
 		SUM(v_adtf_driven_dist_diff_by_row.dist_m_diff) 
 			OVER (PARTITION BY 
 							v_adtf_driven_dist_diff_by_row.subject_id, 
-							v_adtf_driven_dist_diff_by_row.round_id 
+							v_adtf_driven_dist_diff_by_row.round_nr 
 						ORDER BY 
 							v_adtf_driven_dist_diff_by_row.row_nr) <= 6000
  	THEN 1::NUMERIC

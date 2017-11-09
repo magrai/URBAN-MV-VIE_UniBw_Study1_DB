@@ -37,7 +37,7 @@ CASE
 --------------------------------------------------------------------------------
 -- Correct decimal places from gps signals
 latitude::numeric/ (100000000000000::bigint)	::NUMERIC AS gps_lat, 
-longitude::numeric/ (100000000000000::bigint)	::NUMERIC AS gps_lon,
+longitude::numeric/ (100000000000000::bigint)	::NUMERIC AS gps_long,
 --------------------------------------------------------------------------------
 height										::NUMERIC AS gps_height,
 latitude_deviation				::NUMERIC AS gps_lat_dev, 

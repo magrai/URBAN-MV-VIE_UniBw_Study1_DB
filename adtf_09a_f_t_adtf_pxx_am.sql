@@ -49,7 +49,7 @@ BEGIN
 	SELECT
 	t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr,
 	t_adtf_p' ||  pos_id_txt || '_gps_dist.subject_id,
-	t_adtf_p' ||  pos_id_txt || '_gps_dist.round_id,
+	t_adtf_p' ||  pos_id_txt || '_gps_dist.round_nr,
 	--
 	t_adtf_p' ||  pos_id_txt || '_gps_dist.time_s,
 	t_adtf_p' ||  pos_id_txt || '_gps_dist.dist_m,
@@ -62,7 +62,7 @@ BEGIN
 	LEFT JOIN
 	t_adtf_p' ||  pos_id_txt || '_gps_dist_min ON
 		t_adtf_p' ||  pos_id_txt || '_gps_dist.subject_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.subject_id AND
-		t_adtf_p' ||  pos_id_txt || '_gps_dist.round_id = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.round_id
+		t_adtf_p' ||  pos_id_txt || '_gps_dist.round_nr = t_adtf_p' ||  pos_id_txt || '_gps_dist_min.round_nr
 	
 	ORDER BY
 	t_adtf_p' ||  pos_id_txt || '_gps_dist.row_nr

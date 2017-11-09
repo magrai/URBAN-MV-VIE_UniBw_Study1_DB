@@ -12,7 +12,7 @@ BEGIN
 	SELECT
 	-- t_adtf_p' || pos_id_txt || '_am.row_nr,
 	t_adtf_p' || pos_id_txt || '_am.subject_id,
-	t_adtf_rounds_by_row.round_txt,
+	t_adtf_rounds_by_row.round_id,
 	--
 	t_adtf_p' || pos_id_txt || '_am.time_s,
 	t_adtf_p' || pos_id_txt || '_am.dist_m,
@@ -22,7 +22,7 @@ BEGIN
 	t_adtf_p' || pos_id_txt || '_am.p' ||  pos_id_txt || '_dti_m,
 	--
 	t_adtf_formatted.gps_lat,
-	t_adtf_formatted.gps_lon,
+	t_adtf_formatted.gps_long,
 	--------------------------------------------------------------------------------
 	t_adtf_formatted.speed_kmh,
 	t_adtf_formatted.acc_lat_ms2,

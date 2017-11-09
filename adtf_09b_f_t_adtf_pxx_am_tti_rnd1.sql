@@ -13,7 +13,7 @@ EXECUTE '
 	SELECT 
 	MIN(row_nr) as row_nr,
 	subject_id,
-	round_id,
+	round_nr,
 	MIN(t_adtf_p' || pos_id_txt || '_am.time_s) AS time_s,
 	MIN(t_adtf_p' || pos_id_txt || '_am.dist_m) AS dist_m,
 	round(p' || pos_id_txt || '_tti_s, 1) as p' || pos_id_txt || '_tti_s_rnd1,
@@ -28,7 +28,7 @@ EXECUTE '
 
 	GROUP BY
 	subject_id,
-	round_id,
+	round_nr,
 	round(p' || pos_id_txt || '_tti_s, 1)
 	
 	ORDER BY
