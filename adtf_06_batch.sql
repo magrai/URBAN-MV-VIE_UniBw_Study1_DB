@@ -22,7 +22,7 @@ BEGIN
 --------------------------------------------------------------------------------
 -- Comment this part when using pre-declared array
 -- SELECT 
--- DISTINCT ARRAY_AGG(position_id ORDER BY position_id) 
+-- ARRAY_AGG(DISTINCT position_id ORDER BY position_id) 
 -- FROM t_gps_reference_positions 
 -- INTO position_ids;
 --------------------------------------------------------------------------------
@@ -45,10 +45,10 @@ FOREACH pos_id IN ARRAY position_ids LOOP
 	-- !!! PERFORM f_t_adtf_dist2sxx_min(pos_id); 
 	 
 	-- Aggregate to 10 Hz time (and minimise distance)
-	PERFORM f_t_adtf_pxx_am_dti_rnd1(pos_id); 
+	PERFORM f_t_adtf_pxx_am_aggr_dti_rnd1(pos_id); 
 	
 	-- Aggregate to 10 Hz distance (and minimise time)
-	PERFORM f_t_adtf_pxx_am_tti_rnd1(pos_id); 
+	PERFORM f_t_adtf_pxx_am_aggr_tti_rnd1(pos_id); 
 	
 	-- Join non-aggregated arrival measures with vehicle data and round names
 	PERFORM f_t_adtf_pxx_full(pos_id); 

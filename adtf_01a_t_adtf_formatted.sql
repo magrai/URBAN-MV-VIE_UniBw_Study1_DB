@@ -16,7 +16,7 @@ subject_id,
 "ESP_Status_Bremsdruck"		::NUMERIC AS brake_status, 
 "OBD_Abs_Pedal_Pos"				::NUMERIC AS acc_pedal_pos_perc, 
 "LWI_Lenkradwinkel"				::NUMERIC AS steer_angle_deg, 
-"LWI_Lenkradw_Geschw"			::NUMERIC AS steer_angle_degs,
+"LWI_Lenkradw_Geschw"			::NUMERIC AS steer_angle_speed_degs,
 "ESP_Gierrate"						::NUMERIC AS yaw_rate_degs,
 --------------------------------------------------------------------------------
 -- Recoding indicator variables to a single variable

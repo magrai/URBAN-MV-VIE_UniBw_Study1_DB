@@ -31,7 +31,7 @@ BEGIN
 	t_adtf_formatted.brake_press_bar,
 	t_adtf_formatted.brake_status,
 	t_adtf_formatted.steer_angle_deg,
-	t_adtf_formatted.steer_angle_degs,
+	t_adtf_formatted.steer_angle_speed_degs,
 	t_adtf_formatted.acc_pedal_pos_perc,
 	t_adtf_formatted.ind
 

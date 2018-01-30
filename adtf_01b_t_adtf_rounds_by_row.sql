@@ -8,18 +8,16 @@ t_adtf_formatted.time_s,
 t_adtf_rounds_summary.round_nr,
 CASE 
 	WHEN t_adtf_rounds_summary.round_nr = 1 THEN 'intro'
-	WHEN t_adtf_rounds_summary.round_nr = t_conditions.round_normal THEN 'normal'
-	WHEN t_adtf_rounds_summary.round_nr = t_conditions.round_stress THEN 'stress'
+	WHEN t_adtf_rounds_summary.round_nr = t_experimental_conditions.round_normal THEN 'normal'
+	WHEN t_adtf_rounds_summary.round_nr = t_experimental_conditions.round_stress THEN 'stress'
 END AS round_id
 --------------------------------------------------------------------------------
 FROM 
 t_adtf_formatted
 LEFT JOIN 
-	t_conditions ON 
-	t_adtf_formatted.subject_id = t_conditions.subject_id,
+	t_experimental_conditions ON 
+	t_adtf_formatted.subject_id = t_experimental_conditions.subject_id,
 t_adtf_rounds_summary
-
-
 --------------------------------------------------------------------------------
 WHERE 
 t_adtf_formatted.subject_id = t_adtf_rounds_summary.subject_id AND 

@@ -1,39 +1,39 @@
-DROP VIEW IF EXISTS v_fb_vip_pr_quartile_prozent;
-CREATE OR REPLACE VIEW v_fb_vip_pr_quartile_prozent AS
+DROP VIEW IF EXISTS v_q_vip_pr_quartile_prozent;
+CREATE OR REPLACE VIEW v_q_vip_pr_quartile_prozent AS
 
 SELECT
 
-'0 bis 25%' as "prozentrang",
+'0 bis 25%' as "Prozentrang",
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_AI" <= 25
+		t_q_vip.vip_pr_ai <= 25
 		THEN 1
 	END) as "AI",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_EA" <= 25
+		t_q_vip.vip_pr_ea <= 25
 		THEN 1
 	END) as "EA",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_SE" <= 25
+		t_q_vip.vip_pr_se <= 25
 		THEN 1
 	END) as "SE",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_US" <= 25
+		t_q_vip.vip_pr_us <= 25
 		THEN 1
 	END) as "US"
 
 FROM
-t_fb_vip_ohne19
+t_q_vip
 
 UNION
 
@@ -43,37 +43,37 @@ SELECT
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_AI" > 25 AND
-		t_fb_vip_ohne19."VIP_PR_AI" <= 50
+		t_q_vip.vip_pr_ai > 25 AND
+		t_q_vip.vip_pr_ai <= 50
 		THEN 1
 	END) as "AI",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_EA" > 25 AND
-		t_fb_vip_ohne19."VIP_PR_EA" <= 50
+		t_q_vip.vip_pr_ea > 25 AND
+		t_q_vip.vip_pr_ea <= 50
 		THEN 1
 	END) as "EA",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_SE" > 25 AND
-		t_fb_vip_ohne19."VIP_PR_SE" <= 50
+		t_q_vip.vip_pr_se > 25 AND
+		t_q_vip.vip_pr_se <= 50
 		THEN 1
 	END) as "SE",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_US" > 25 AND
-		t_fb_vip_ohne19."VIP_PR_US" <= 50
+		t_q_vip.vip_pr_us > 25 AND
+		t_q_vip.vip_pr_us <= 50
 		THEN 1
 	END) as "US"
 
 FROM
-t_fb_vip_ohne19
+t_q_vip
 
 UNION
 
@@ -83,37 +83,37 @@ SELECT
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_AI" > 50 AND
-		t_fb_vip_ohne19."VIP_PR_AI" <= 75
+		t_q_vip.vip_pr_ai > 50 AND
+		t_q_vip.vip_pr_ai <= 75
 		THEN 1
 	END) as "AI",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_EA" > 50 AND
-		t_fb_vip_ohne19."VIP_PR_EA" <= 75
+		t_q_vip.vip_pr_ea > 50 AND
+		t_q_vip.vip_pr_ea <= 75
 		THEN 1
 	END) as "EA",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_SE" > 50 AND
-		t_fb_vip_ohne19."VIP_PR_SE" <= 75
+		t_q_vip.vip_pr_se > 50 AND
+		t_q_vip.vip_pr_se <= 75
 		THEN 1
 	END) as "SE",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_US" > 50 AND
-		t_fb_vip_ohne19."VIP_PR_US" <= 75
+		t_q_vip.vip_pr_us > 50 AND
+		t_q_vip.vip_pr_us <= 75
 		THEN 1
 	END) as "US"
 
 FROM
-t_fb_vip_ohne19
+t_q_vip
 
 UNION
 
@@ -123,37 +123,40 @@ SELECT
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_AI" > 75 AND
-		t_fb_vip_ohne19."VIP_PR_AI" <= 100
+		t_q_vip.vip_pr_ai > 75 AND
+		t_q_vip.vip_pr_ai <= 100
 		THEN 1
 	END) as "AI",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_EA" > 75 AND
-		t_fb_vip_ohne19."VIP_PR_EA" <= 100
+		t_q_vip.vip_pr_ea > 75 AND
+		t_q_vip.vip_pr_ea <= 100
 		THEN 1
 	END) as "EA",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_SE" > 75 AND
-		t_fb_vip_ohne19."VIP_PR_SE" <= 100
+		t_q_vip.vip_pr_se > 75 AND
+		t_q_vip.vip_pr_se <= 100
 		THEN 1
 	END) as "SE",
 
 100/30 * COUNT (
 	CASE
 		WHEN 
-		t_fb_vip_ohne19."VIP_PR_US" > 75 AND
-		t_fb_vip_ohne19."VIP_PR_US" <= 100
+		t_q_vip.vip_pr_us > 75 AND
+		t_q_vip.vip_pr_us <= 100
 		THEN 1
 	END) as "US"
 
 FROM
-t_fb_vip_ohne19
+t_q_vip
+
+WHERE
+t_q_vip.subject_id <> 19
 
 ORDER BY
 "Prozentrang"
